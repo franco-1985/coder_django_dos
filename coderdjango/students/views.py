@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
+from coderdjango.students.models import Familiar
 
 class StudentView(TemplateView):
     template_name = 'students/index.html'
@@ -12,6 +13,6 @@ class StudentView(TemplateView):
         print(request.GET.get('edad'))
         context = {
             'edad': request.GET.get('edad'),
-            'list_test': [1,2,3,4]
+            'list_test': [Familiar(),Familiar(),Familiar(),Familiar()]
         }
         return render(request, self.template_name, context)
