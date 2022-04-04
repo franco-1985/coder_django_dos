@@ -6,18 +6,15 @@ from coderdjango.students.models import Familiar, Curso
 class StudentView(TemplateView):
     template_name = 'students/index.html'
 
-    # def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
-    #     return super().get_context_data(**kwargs)
-
-
     def get(self, request, status=None):
-
-        cursos = Curso.objects.all()
+        familiares = Familiar.objects.all()
 
         #print(request.GET.get('edad'))
         context = {
             #'edad': request.GET.get('edad'),
-            # 'list_test': [curso,Familiar(),Familiar(),Familiar()]
-            'list_test': cursos
+            'list_test': familiares
         }
         return render(request, self.template_name, context)
+
+    def post(self, request):
+        pass

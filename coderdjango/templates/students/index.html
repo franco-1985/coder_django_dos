@@ -7,16 +7,34 @@
 </head>
 <body>
 Lista de familiares
-<strong style="color:blue"> {{ edad }}</strong>
+<!--<strong style="color:blue"> {{ edad }}</strong>-->
 
-{% for element in list_test %}
-</br>
-  <strong style="color:red"> {{ element }}</strong>
-{% endfor %}
+<!--{% for element in list_test %}-->
+<!--</br>-->
+<!--<strong style="color:red"> {{ element.nombre }}</strong>-->
+<!--<strong style="color:red"> {{ element.fecha_nacimiento }}</strong>-->
+<!--<strong style="color:red"> {{ element.identificacion }}</strong>-->
+<!--{% endfor %}-->
 
-{% if edad == '99' %}
-  Tiene 99
-{% endif %}
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Identificacion</th>
+    <th scope="col">Nombre completo</th>
+    <th scope="col">Fecha de nacimiento</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for element in list_test %}
+  <tr>
+    <td>{{ element.identificacion }}</td>
+    <td>{{ element.nombre }}</td>
+    <td>{{ element.fecha_nacimiento }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
 
 </body>
 </html>
