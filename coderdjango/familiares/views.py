@@ -1,20 +1,15 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
-from coderdjango.students.models import Familiar, Curso
+from coderdjango.familiares.models import Familiar
 
-class StudentView(TemplateView):
-    template_name = 'students/index.html'
+class FamiliaView(TemplateView):
+    template_name = 'familiares/index.html'
 
     def get(self, request, status=None):
         familiares = Familiar.objects.all()
 
-        #print(request.GET.get('edad'))
         context = {
-            #'edad': request.GET.get('edad'),
             'list_test': familiares
         }
         return render(request, self.template_name, context)
-
-    def post(self, request):
-        pass

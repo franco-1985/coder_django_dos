@@ -7,19 +7,10 @@ from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
 
-from coderdjango.students.views import StudentView
+from coderdjango.familiares.views import FamiliaView
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
-    path(
-        "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
-    ),
-    # Django Admin, use {% url 'admin:index' %}
-    path(settings.ADMIN_URL, admin.site.urls),
-    # User management
-    path("users/", include("coderdjango.users.urls", namespace="users")),
-    path("accounts/", include("allauth.urls")),
-    path("students/", StudentView.as_view(), name="student"),
+    path("familia/", FamiliaView.as_view(), name="familia"),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
