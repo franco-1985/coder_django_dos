@@ -9,7 +9,8 @@ from coderdjango.familiares.forms import FormularioFamiliar
 class FamiliaView(HttpRequest):
 
     def get(request, status=None):
-        template_name = 'familiares/index.html'
+        #template_name = 'familiares/index.html'
+        template_name = 'familiares/lista_familiares.html'
         familiares = Familiar.objects.all()
 
         context = {

@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base_v2.html" %}
 {% load crispy_forms_tags %}
-<head>
-  <meta charset="UTF-8">
-  <title>MVT Coder :: Carga de datos</title>
-</head>
-<body>
+{% block content %}
+
   {% if form.errors %}
     <div class="alert alert-danger" role="alert">
       Error!
@@ -27,5 +23,4 @@
     <button type="submit" class="btn btn-primary">Guardar familiar</button>
 
   </form>
-</body>
-</html>
+{% endblock %}

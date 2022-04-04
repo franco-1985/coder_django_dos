@@ -8,10 +8,12 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
-                  path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+                  #path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+                  path("", TemplateView.as_view(template_name="base_v2.html"), name="home"),
+                  # path("form/", TemplateView.as_view(template_name="formulario.html"), name="form"),
                   path("familia/", FamiliaView.get, name="familia"),
-                  path("addfamilia/", FamiliaView.index, name="registrar_familia"),
-                  path("savefamilia/", FamiliaView.procesar_formulario, name="guardar_familia"),
+                  path("registrarfamilia/", FamiliaView.index, name="registrar_familia"),
+                  path("guardarfamilia/", FamiliaView.procesar_formulario, name="guardar_familia"),
                   # Your stuff: custom urls includes go here
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
