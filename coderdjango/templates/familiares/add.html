@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load crispy_forms_tags %}
+<head>
+  <meta charset="UTF-8">
+  <title>MVT Coder :: Carga de datos</title>
+</head>
+<body>
+  {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+      Error!
+    </div>
+  {% endif %}
+
+  <h1> Registro de familiares </h1>
+
+  <form action=" {%url 'guardar_familia' %}" method="POST">
+    {% csrf_token %}
+    {% if mensaje %}
+      <div class="alert alert-success" role="alert">
+        Familiar registrado OK
+      </div>
+    {% endif %}
+
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-primary">Guardar familiar</button>
+
+  </form>
+</body>
+</html>

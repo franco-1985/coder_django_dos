@@ -1,18 +1,19 @@
+from coderdjango.familiares.views import FamiliaView
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib import admin
 from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
 
-from coderdjango.familiares.views import FamiliaView
-
 urlpatterns = [
-    path("familia/", FamiliaView.as_view(), name="familia"),
-    # Your stuff: custom urls includes go here
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+                  path("familia/", FamiliaView.get, name="familia"),
+                  path("addfamilia/", FamiliaView.index, name="registrar_familia"),
+                  path("savefamilia/", FamiliaView.procesar_formulario, name="guardar_familia"),
+                  # Your stuff: custom urls includes go here
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS
 urlpatterns += [
